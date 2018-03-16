@@ -1,0 +1,7 @@
+
+public class IChatAula extends Remote {
+	
+	void sendMessage(Message msg) throws RemoteException;
+	List<Message> retrieveMessage() throws RemoteException;
+
+}

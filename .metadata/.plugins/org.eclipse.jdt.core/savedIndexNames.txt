@@ -1,0 +1,2 @@
+INDEX VERSION 1.130+/home/bruna/Documentos/Sistemas Distribuídos/Aula 4/.metadata/.plugins/org.eclipse.jdt.core
+3065134523.index
