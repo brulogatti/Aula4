@@ -12,16 +12,23 @@ public class Teste {
 
 		String nome = "";
 		String msgp = "";
+		
 
 		nome = JOptionPane.showInputDialog("Bem vindo ao Chat! Qual o seu nome? ");
-
+		System.out.println(nome + " entrou no Chat");
+		
 		try {
-			while (msgp != "0") {
+			while (!msgp.equals("0")) {
 				msgp = JOptionPane.showInputDialog("Chat - " + nome + " Entre com a mensagem. (Entre com 0 para sair)");
 				IChatAula objChat = (IChatAula) Naming.lookup("rmi://localhost:8282/chat");
-				Message msg = new Message(nome, msgp);
+				Message msg = new Message(nome, msgp, true);
 				objChat.sendMessage(msg);
 				System.out.println(returnMessage(objChat.retrieveMessage()));
+				new ChatAula().inserirBanco(nome,msgp);
+				if(msgp.equals("0")) {
+					msg.setStat(false);
+					System.out.println(msg.getUsuario() + " saiu do Chat");
+				}
 			}
 		} catch (MalformedURLException e) {
 			e.printStackTrace();

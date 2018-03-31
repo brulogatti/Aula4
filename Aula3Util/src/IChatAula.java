@@ -8,4 +8,5 @@ public interface IChatAula extends Remote {
 
 	List<Message> retrieveMessage() throws RemoteException;
 
+	void inserirBanco(String user, String msg) throws RemoteException;
 }

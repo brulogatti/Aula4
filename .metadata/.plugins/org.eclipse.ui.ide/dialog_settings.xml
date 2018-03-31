@@ -1,8 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="/home/bruna/Documentos/Paradigmas da Linguagem/Exercicios/Exercicio3"/>
+		<item value="/home/bruna/Documentos/Paradigmas da Linguagem/Exercicios/Exercicio2"/>
+		<item value="/home/bruna/Documentos/Paradigmas da Linguagem/Exercicios/Exercicio1"/>
+		<item value="/home/bruna/Downloads/Aula 2"/>
+		<item value="/home/bruna/Documentos/Sistemas Distribuídos/Aula 4/Aula3Util"/>
+		<item value="/home/bruna/Documentos/Sistemas Distribuídos/Aula 4/Aula3Server"/>
+		<item value="/home/bruna/Documentos/Sistemas Distribuídos/Aula 4/Aula3ClienteTeste"/>
+		<item value="/home/bruna/Documentos/Sistemas Distribuídos/Aula 5/ProjChocolate"/>
+		<item value="/home/bruna/Documentos/Paradigmas da Linguagem/Banco"/>
 		<item value="/home/bruna/Documentos/Sistemas Distribuídos/Aula 4/ProjExemploBanco"/>
 	</list>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
+	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.jst.servlet.ui.project.facet.WebProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.wst.web.ui"/>
+		</list>
+	</section>
 	<section name="ChooseWorkspaceDialogSettings">
 		<item value="309" key="DIALOG_X_ORIGIN"/>
 		<item value="174" key="DIALOG_Y_ORIGIN"/>

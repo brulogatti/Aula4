@@ -42,7 +42,7 @@ public class AgendaDB {
 	public boolean delete (Agenda agenda) {
 		try {
 			entityManager.getTransaction().begin();
-			agenda = entityManager.find(Agenda.class, agenda.getCodigo());
+			agenda = entityManager.find(Agenda.class, agenda.getUser());
 			entityManager.remove(agenda);
 			entityManager.getTransaction().commit();
 			entityManager.close();
@@ -52,10 +52,10 @@ public class AgendaDB {
 		return true;
 	}
 	
-	public Agenda selectTo (int codigo) {
+	public Agenda selectTo (String user) {
 		try {
 			entityManager.getTransaction().begin();
-			Agenda agenda = entityManager.find(Agenda.class, codigo);
+			Agenda agenda = entityManager.find(Agenda.class, user);
 			entityManager.getTransaction().commit();
 			entityManager.close();
 			return agenda;

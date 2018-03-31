@@ -1,52 +1,56 @@
 package br.com.proj.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Agenda {
+public class Agenda{
 
 	public static final String QUERY_ALL = "Agenda.All";
 	
 	@Id
 	@GeneratedValue
-	private int codigo;
-	
-	private String nome;
-	private String telefone;
+	private String user;
+	private String message;
+
+	private static List<Agenda> lstMessage = new ArrayList<Agenda>();
 
 	public Agenda() {
 	}
 
-	public Agenda(int codigo, String nome, String telefone) {
-		this.codigo = codigo;
-		this.nome = nome;
-		this.telefone = telefone;
+	public Agenda(String user, String message) {
+		this.user=user;
+		this.message=message;
 	}
 
-	public int getCodigo() {
-		return codigo;
+	public String getUser() {
+		return user;
 	}
 
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
+	public void setUser(String user) {
+		this.user = user;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getMessage() {
+		return message;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
-	public String getTelefone() {
-		return telefone;
+	public static List<Agenda> getLstMessage() {
+		return lstMessage;
 	}
 
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
+	public static void setLstMessage(List<Agenda> lstMessage) {
+		Agenda.lstMessage = lstMessage;
 	}
+
+	
 	
 }

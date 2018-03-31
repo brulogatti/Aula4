@@ -1,34 +1,37 @@
 package br.com.proj.test;
 
+import java.io.Serializable;
+
 import br.com.proj.controller.AgendaDB;
 import br.com.proj.model.Agenda;
 import junit.framework.TestCase;
 
-public class Test extends TestCase {
+
+
+public class Test extends TestCase implements Serializable {
 
 	public void testInsert() {
 		Agenda agenda = new Agenda();
-		agenda.setNome("Teste");
-		agenda.setTelefone("2345");
+		agenda.setUser(user);
+		agenda.setMessage(message);
 		assertEquals(new AgendaDB().insert(agenda), true);
 	}
 
 	public void testUpdate() {
 		Agenda agenda = new Agenda();
-		agenda.setCodigo(2);
-		agenda.setNome("Luiz Gonzaga");
-		agenda.setTelefone("9633");
+		agenda.setUser(user);
+		agenda.setMessage(message);
 		assertEquals(new AgendaDB().update(agenda), true);
 	}
 
 	public void testDelete() {
 		Agenda agenda = new Agenda();
-		agenda.setCodigo(12);
+		agenda.setUser();
 		assertEquals(new AgendaDB().delete(agenda), true);
 	}
 
 	public void testSelectTo() {
-		assertNotNull(new AgendaDB().selectTo(1));
+		assertNotNull(new AgendaDB().selectTo());
 	}
 	
 	public void testSelectAll() {

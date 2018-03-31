@@ -8,12 +8,14 @@ public class Message implements Serializable {
 
 	private String user;
 	private String message;
+	private boolean stat;
 
 	private static List<Message> lstMessage = new ArrayList<Message>();
 
-	public Message(String user, String message) {
+	public Message(String user, String message, boolean stat) {
 		this.user = user;
 		this.message = message;
+		this.stat=stat;
 	}
 
 	public String getUsuario() {
@@ -30,6 +32,14 @@ public class Message implements Serializable {
 
 	public void setMensagem(String message) {
 		this.message = message;
+	}
+	
+	public boolean getStat() {
+		return stat;
+	}
+
+	public void setStat(boolean stat) {
+		this.stat = stat;
 	}
 
 	public static List<Message> getLstMessage() {
