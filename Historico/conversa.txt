@@ -1,0 +1,10 @@
+Bruna:  entrou no chat
+Kelly:  entrou no chat
+Bruna: Oi
+Kelly: olá
+Bruna: Td bem?
+Kelly: Td e vc?
+Bruna: Td
+Bruna: Vou sair
+
+Bruna: 0

@@ -15,8 +15,9 @@ public class Message implements Serializable {
 	public Message(String user, String message, boolean stat) {
 		this.user = user;
 		this.message = message;
-		this.stat=stat;
+		this.stat = stat;
 	}
+
 
 	public String getUsuario() {
 		return user;
@@ -33,7 +34,7 @@ public class Message implements Serializable {
 	public void setMensagem(String message) {
 		this.message = message;
 	}
-	
+
 	public boolean getStat() {
 		return stat;
 	}

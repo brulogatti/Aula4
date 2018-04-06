@@ -21,18 +21,17 @@ import javax.swing.JOptionPane;
  * @author bruna
  */
 
-public class JFrameChat extends javax.swing.JFrame {
+public class JFrameChat2 extends javax.swing.JFrame {
 
 	private String mensagem = "";
 	private static String usuario = "";
-	private static String value ="";
-	private int comeco=0;
+	private String value ="";
 	
 
 	/**
 	 * Creates new form JFrameChat
 	 */
-	public JFrameChat() {
+	public JFrameChat2() {
 		initComponents();
 	}
 
@@ -162,32 +161,9 @@ public class JFrameChat extends javax.swing.JFrame {
 
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
-	
-	public class MyThread extends Thread {
-
-	    public void run(){
-	    	while(comeco==1) {
-	    	try {
-				IChatAula objChat = (IChatAula) Naming.lookup("rmi://localhost:8282/chat");
-				jTextArea1.setText("");
-				jTextArea1.append(returnMessage(objChat.retrieveMessage()));
-				jTextArea1.append(returnUser(objChat.retrieveMessage()));
-				Thread.sleep(6000);
-			} catch (MalformedURLException e) {
-				e.printStackTrace();
-			} catch (RemoteException e) {
-				e.printStackTrace();
-			} catch (NotBoundException e) {
-				e.printStackTrace();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-	    }
-	    }
-	  }
 
 	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
-		comeco=1;
+
 		if (usuario.equals("")) {
 			usuario = jTextArea2.getText();
 			jTextArea2.setText("");
@@ -209,13 +185,10 @@ public class JFrameChat extends javax.swing.JFrame {
 			}
 		} else {
 			try {
-				MyThread myThread = new MyThread();
-				myThread.start();
 				mensagem = jTextArea2.getText();
 				IChatAula objChat = (IChatAula) Naming.lookup("rmi://localhost:8282/chat");
 				Message mensagemp = new Message(usuario, mensagem, true);
 				if (mensagem.equals("0")) {
-					comeco=0;
 					mensagemp.setStat(false);
 					objChat.sendMessage(mensagemp);
 					jTextArea1.setText("Você saiu do chat");
@@ -236,6 +209,7 @@ public class JFrameChat extends javax.swing.JFrame {
 				jTextArea1.setText("");
 				jTextArea1.append(returnMessage(objChat.retrieveMessage()));
 				new ChatAula().inserirBanco(usuario, mensagem);
+				value += mensagemp.getUsuario()+": "+mensagemp.getMensagem()+"\n";
 		    }
 				jTextArea2.setText("");
 			} catch (MalformedURLException e) {
@@ -250,13 +224,30 @@ public class JFrameChat extends javax.swing.JFrame {
 		}
 
 	}// GEN-LAST:event_jButton1ActionPerformed
-	
+
+	private Runnable t1=new Runnable()
+	{
+		public void run(){
+		try{
+			IChatAula objChat=(IChatAula)Naming.lookup("rmi://localhost:8282/chat");jTextArea1.setText("");
+			jTextArea1.append(returnMessage(objChat.retrieveMessage()));
+			jTextArea2.setText("");
+			jTextArea1.append(returnUser(objChat.retrieveMessage()));
+			}catch(MalformedURLException e){
+			e.printStackTrace();
+			}catch(RemoteException e){
+				e.printStackTrace();
+				}catch(NotBoundException e){
+					e.printStackTrace();
+					}catch(Exception e){
+						e.printStackTrace();}
+		}
+	};
 
 	private static String returnMessage(List<Message> lst) {
 		String valor = "";
 		for (Message message : lst) {
 			valor += message.getUsuario() + ": " + message.getMensagem() + "\n";
-			value = valor;
 		}
 		return valor;
 	}
@@ -337,16 +328,16 @@ public class JFrameChat extends javax.swing.JFrame {
 				}
 			}
 		} catch (ClassNotFoundException ex) {
-			java.util.logging.Logger.getLogger(JFrameChat.class.getName()).log(java.util.logging.Level.SEVERE, null,
+			java.util.logging.Logger.getLogger(JFrameChat2.class.getName()).log(java.util.logging.Level.SEVERE, null,
 					ex);
 		} catch (InstantiationException ex) {
-			java.util.logging.Logger.getLogger(JFrameChat.class.getName()).log(java.util.logging.Level.SEVERE, null,
+			java.util.logging.Logger.getLogger(JFrameChat2.class.getName()).log(java.util.logging.Level.SEVERE, null,
 					ex);
 		} catch (IllegalAccessException ex) {
-			java.util.logging.Logger.getLogger(JFrameChat.class.getName()).log(java.util.logging.Level.SEVERE, null,
+			java.util.logging.Logger.getLogger(JFrameChat2.class.getName()).log(java.util.logging.Level.SEVERE, null,
 					ex);
 		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-			java.util.logging.Logger.getLogger(JFrameChat.class.getName()).log(java.util.logging.Level.SEVERE, null,
+			java.util.logging.Logger.getLogger(JFrameChat2.class.getName()).log(java.util.logging.Level.SEVERE, null,
 					ex);
 		}
 		// </editor-fold>
@@ -354,7 +345,7 @@ public class JFrameChat extends javax.swing.JFrame {
 		/* Create and display the form */
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new JFrameChat().setVisible(true);
+				new JFrameChat2().setVisible(true);
 			}
 		});
 	}

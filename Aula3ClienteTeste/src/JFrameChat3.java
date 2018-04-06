@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  * @author bruna
  */
 
-public class JFrameChat extends javax.swing.JFrame {
+public class JFrameChat3 extends javax.swing.JFrame {
 
 	private String mensagem = "";
 	private static String usuario = "";
@@ -32,7 +32,7 @@ public class JFrameChat extends javax.swing.JFrame {
 	/**
 	 * Creates new form JFrameChat
 	 */
-	public JFrameChat() {
+	public JFrameChat3() {
 		initComponents();
 	}
 
@@ -337,16 +337,16 @@ public class JFrameChat extends javax.swing.JFrame {
 				}
 			}
 		} catch (ClassNotFoundException ex) {
-			java.util.logging.Logger.getLogger(JFrameChat.class.getName()).log(java.util.logging.Level.SEVERE, null,
+			java.util.logging.Logger.getLogger(JFrameChat3.class.getName()).log(java.util.logging.Level.SEVERE, null,
 					ex);
 		} catch (InstantiationException ex) {
-			java.util.logging.Logger.getLogger(JFrameChat.class.getName()).log(java.util.logging.Level.SEVERE, null,
+			java.util.logging.Logger.getLogger(JFrameChat3.class.getName()).log(java.util.logging.Level.SEVERE, null,
 					ex);
 		} catch (IllegalAccessException ex) {
-			java.util.logging.Logger.getLogger(JFrameChat.class.getName()).log(java.util.logging.Level.SEVERE, null,
+			java.util.logging.Logger.getLogger(JFrameChat3.class.getName()).log(java.util.logging.Level.SEVERE, null,
 					ex);
 		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-			java.util.logging.Logger.getLogger(JFrameChat.class.getName()).log(java.util.logging.Level.SEVERE, null,
+			java.util.logging.Logger.getLogger(JFrameChat3.class.getName()).log(java.util.logging.Level.SEVERE, null,
 					ex);
 		}
 		// </editor-fold>
@@ -354,7 +354,7 @@ public class JFrameChat extends javax.swing.JFrame {
 		/* Create and display the form */
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new JFrameChat().setVisible(true);
+				new JFrameChat3().setVisible(true);
 			}
 		});
 	}
